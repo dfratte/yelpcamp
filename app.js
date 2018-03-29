@@ -15,8 +15,9 @@ var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
 
-// mongoose.connect("mongodb://localhost/yelp_camp_v11");
-mongoose.connect("mongodb://drfratte:12345@ds227459.mlab.com:27459/yelpcamp");
+mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect("mongodb://drfratte:12345@ds227459.mlab.com:27459/yelpcamp");
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"))  // good practice
